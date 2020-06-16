@@ -4,6 +4,7 @@
 
 ## Purpose of the project is to 
  - integrate CK5Editor document version with angular
+ - changing document template to be edited from the dropdown
  - trial html document export to pdf
 
 ## Findings by far

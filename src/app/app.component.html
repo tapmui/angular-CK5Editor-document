@@ -16,12 +16,10 @@
 </div>
 <div> <button  (click)="downloadAsPDF()">Export To PDF</button></div>
 <p></p>
-<div  id="pdfArea" #pdfArea>
-</div>
+
    <div class="document-editor">
-    <div class="document-editor__toolbar">
-    </div>
-    <div>
+      <div class="document-editor__toolbar"></div>
+    <div id="pdfArea" #pdfArea>
       <div class="document-editor__editable">
         <div class="document-editor__editable-container">
             <ckeditor
@@ -36,154 +34,11 @@
               (focus)="onFocus($event)"
               (blur)="onBlur($event)">
               debounce="500"
-              </ckeditor>
+            </ckeditor>
         </div>
      </div>
     </div>
-
   </div>
-
-
-
-
-  <!-- <form (ngSubmit)="onSubmit(demoReactiveForm.value)" [formGroup]="demoReactiveForm">
-	<h3>Document submit demo</h3>
-
-	<div>
-		<label for="name">Name</label>
-    <input formControlName="name" type="text" name="name" id="name">
-	</div>
-	<p></p>
-	<div>
-		<label for="surname">Surname</label>
-    <input formControlName="surname" type="text" name="surname" id="surname">
-	</div>
-  <p></p>
-  <div class="document-editor">
-      <div class="document-editor__toolbar"></div>
-      <div class="document-editor__editable-container">
-          <div class="document-editor__editable">
-              <ckeditor  
-              name="myEditor"
-              [editor]="Editor"
-              formControlName="data"
-              [disabled]="isReadOnly"
-              [config]="editorConfig"
-              (ready)="onReady()"
-              (blur)="onBlur()"
-              (paste)="onPaste($event)"
-              debounce="500"
-              id="data"
-		          name="data"
-              type="divarea"
-              required
-              >
-              </ckeditor>
-          </div>
-      </div>
-  </div>
-  <p *ngIf="data && data.dirty" class="alert">data is "dirty".</p>
-	<p *ngIf="data && data.touched" class="alert">data has been "touched".</p>
-
-  <p><button type="reset" (click)="reset()">Reset form</button></p>
-	<p><button type="submit">Submit this form</button> <em>(Open the console first)</em></p>
-</form> -->
-
-
- <!-- <h3>Form data preview</h3>
-<pre>{{ formDataPreview }}</pre>
-
-
- <h2>CK5Editor integration with forms </h2>
- 
-
-<div class="section">
-	<h3 style="font-weight:bold">Select a template</h3>
-	<select (change)="onChangeTemplate($event.target.value)">
-    <option>Select</option>
-      <option *ngFor="let item of this.dataList; " [value]="item.code">
-        {{item.name}}
-      </option>
-    </select>
-</div>
-
-<form role="form" #myForm="ngForm" accept-charset="UTF-8" novalidate>
-<div class="form-group has-feedback" 
-      [ngClass]="{ 'has-error': myckeditor.invalid && myckeditor.touched }">
-    <ckeditor [(ngModel)]="mycontent"
-              [editor]="Editor"
-              #myckeditor="ngModel"
-              name="myckeditor"
-              required
-              [config]="ckeConfig" 
-              debounce="500" 
-              (paste)="onPaste($event)"
-              (change)="onChange($event)">
-    </ckeditor>
-  <div *ngIf="myckeditor.invalid && myckeditor.touched" class="help-block">Required field.</div>
-</div>
-<button [disabled]="myForm.invalid" class="btn btn-primary">Save</button>
-</form>
-<div [innerHTML]="mycontent"></div>
-  <form (ngSubmit)="onSubmit(demoReactiveForm.value)" [formGroup]="demoReactiveForm">
-	<h3>Document submit demo</h3>
-
-	<div>
-		<label for="name">Name</label>
-    <input formControlName="name" type="text" name="name" id="name">
-	</div>
-	<p></p>
-	<div>
-		<label for="surname">Surname</label>
-    <input formControlName="surname" type="text" name="surname" id="surname">
-	</div>
-  <p></p>
-  <form  (ngSubmit)="onSubmit(demoReactiveForm.value)" [formGroup]="demoReactiveForm">
-	<h3>Document submit demo</h3>
-
-	<div>
-		<label for="name">Name</label>
-    <input  [(ngModel)]="model.name" type="text" name="name" id="name">
-	</div>
-	<p></p>
-	<div>
-		<label for="surname">Surname</label>
-    <input [(ngModel)]="model.surname" type="text" name="surname" id="surname">
-	</div>
-  <p></p>
-
-  <p *ngIf="data && data.dirty" class="alert">data is "dirty".</p>
-	<p *ngIf="data && data.touched" class="alert">data has been "touched".</p>
-
-  <p><button type="reset" (click)="reset()">Reset form</button></p>
-	<p><button type="submit">Submit this form</button> <em>(Open the console first)</em></p>
-</form>
-  <div class="document-editor">
-      <div class="document-editor__toolbar"></div>
-      <div class="document-editor__editable-container">
-          <div class="document-editor__editable">
-              <ckeditor  
-              [editor]="Editor"
-              #myckeditor="ngModel"
-              name="myckeditor"
-              [(ngModel)]="mycontent"
-              (change)="onChange($event)"
-              [disabled]="isReadOnly"
-              [config]="editorConfig"
-              (ready)="onReady()"
-              (blur)="onBlur()"
-              (paste)="onPaste($event)"
-              debounce="500"
-              type="divarea"
-              required
-              >
-              </ckeditor>
-          </div>
-      </div>
-  </div> -->
-
-<!-- <h3>Form data preview</h3>
-<pre>{{ formDataPreview }}</pre> -->
 
 
 

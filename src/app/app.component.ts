@@ -38,10 +38,7 @@ export class AppComponent  implements OnInit, OnChanges, AfterViewInit  {
   constructor(
     private cdr: ChangeDetectorRef,
     public fb: FormBuilder,
-  ) {
-      // this.Editor = DecoupledEditor
-      // .create(document.querySelector( '.document-editor__editable' ));
-   }
+  ) {}
 
   ngOnInit(): void {
    console.log("ngOnInit event" );
@@ -180,11 +177,6 @@ export class AppComponent  implements OnInit, OnChanges, AfterViewInit  {
 
   onChangeTemplate(deviceValue: number) {
      this.model.data = this.dataList.find(x => x.code == deviceValue).data;
-     // this.reset();
-    //  this.model.data = templateData;
-    //  this.demoReactiveForm.controls['data'].setValue(templateData);
-    //  this.demoReactiveForm.markAsDirty();
-     // this.demoReactiveForm = this.toFormGroup(this.model);
   }
 
     public downloadAsPDF() {

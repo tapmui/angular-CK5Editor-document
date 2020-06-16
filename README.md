@@ -1,4 +1,7 @@
 # angular-ivy-dab8c7
+## links to documentation
+https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/angular.html
+https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/ui/document-editor.html
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-dab8c7)
 

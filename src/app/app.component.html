@@ -1,10 +1,8 @@
 
- <h2>CK5Editor integration with forms </h2>
- 
+ <h2>CK5Editor integration with PDF output </h2>
 <p>
-	<button (click)="toggleDisableEditors()">{{ isDisabled ? 'Enable editors' : 'Disable editors' }}</button>
+	<button (click)="toggleDisableEditors()">{{ isReadOnly ? 'Enable editors' : 'Disable editors' }}</button>
 </p>
-
 <div class="section">
 	<h3 style="font-weight:bold">Select a template</h3>
 	<select (change)="onChangeTemplate($event.target.value)">
@@ -17,30 +15,28 @@
 <div> <button  (click)="downloadAsPDF()">Export To PDF</button></div>
 <p></p>
 
-   <div class="document-editor">
-      <div class="document-editor__toolbar"></div>
-    <div id="pdfArea" #pdfArea>
-      <div class="document-editor__editable">
-        <div class="document-editor__editable-container">
-            <ckeditor
-              [config]="editorConfig" 
-              [(ngModel)]="model.data"
-              [editor]="Editor"
-              [disabled]="isReadOnly"
-              id="decoupled-editor"
-              name="decoupled-editor"
-              (ready)="onReady($event)"
-              (change)="onChange($event)"
-              (focus)="onFocus($event)"
-              (blur)="onBlur($event)">
-              debounce="500"
-            </ckeditor>
-        </div>
-     </div>
+<div class="document-editor">
+  <div class="document-editor__toolbar"></div>
+<div id="pdfArea" #pdfArea>
+  <div class="document-editor__editable">
+    <div class="document-editor__editable-container">
+        <ckeditor
+          [config]="editorConfig" 
+          [(ngModel)]="model.data"
+          [editor]="Editor"
+          [disabled]="isReadOnly"
+          id="decoupled-editor"
+          name="decoupled-editor"
+          (ready)="onReady($event)"
+          (change)="onChange($event)"
+          (focus)="onFocus($event)"
+          (blur)="onBlur($event)">
+          debounce="500"
+        </ckeditor>
     </div>
   </div>
-
-
+</div>
+</div>
 
 <h4>Component events:</h4>
 <ul>

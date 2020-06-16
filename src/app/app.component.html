@@ -1,5 +1,5 @@
 
- <h2>CK5Editor integration with PDF output </h2>
+<h2>CK5Editor integration with PDF output </h2>
 <p>
 	<button (click)="toggleDisableEditors()">{{ isReadOnly ? 'Enable editor' : 'Disable editor' }}</button>
 </p>
@@ -18,9 +18,9 @@
 
 <div class="document-editor">
   <div class="document-editor__toolbar"></div>
-  <div id="pdfArea" #pdfArea>
-    <div class="document-editor__editable">
-      <div class="document-editor__editable-container">
+    <div class="document-editor__editable-container">
+      <div class="document-editor__editable">
+        <div id="pdfArea" #pdfArea>
           <ckeditor
             [editor]="Editor"
             id="decoupled-editor"
@@ -38,9 +38,9 @@
   </div>
 </div>
 
-<h4>Component events:</h4>
+<!-- <h4>Component events:</h4>
 <ul>
 	<li *ngFor="let eventInfo of componentEvents">
 		<span>{{ eventInfo }}</span>
 	</li>
-</ul>
+</ul> -->

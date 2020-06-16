@@ -18,6 +18,7 @@ export class AppComponent  implements OnInit, OnChanges, AfterViewInit  {
   public formDataPreview?: string;
   
   public Editor = DecoupledEditor;
+  // public Editor = DecoupledEditor.create(document.querySelector( '.document-editor__editable' ));
   
    //https://ckeditor.com/latest/samples/toolbarconfigurator/index.html#basic
   public editorConfig;
@@ -37,7 +38,10 @@ export class AppComponent  implements OnInit, OnChanges, AfterViewInit  {
   constructor(
     private cdr: ChangeDetectorRef,
     public fb: FormBuilder,
-  ) { }
+  ) {
+      // this.Editor = DecoupledEditor
+      // .create(document.querySelector( '.document-editor__editable' ));
+   }
 
   ngOnInit(): void {
    console.log("ngOnInit event" );
@@ -70,22 +74,22 @@ export class AppComponent  implements OnInit, OnChanges, AfterViewInit  {
    
    // https://ckeditor.com/docs/ckeditor5/latest/api/module_editor-decoupled_decouplededitor-DecoupledEditor.html#static-function-create
   //  ClassicEditor.create(document.querySelector( '.document-editor__editable' ), 
-  DecoupledEditor
-      .create(document.querySelector( '.document-editor__editable' ), 
-       this.editorConfig.toolbar
-      )
-      .then( editor => {
-          console.log( 'Editor was initialized',
-          Array.from( editor.ui.componentFactory.names() ));
+  // DecoupledEditor
+  //     .create(document.querySelector( '.document-editor__editable' ), 
+  //      this.editorConfig.toolbar
+  //     )
+  //     .then( editor => {
+  //         console.log( 'Editor was initialized',
+  //         Array.from( editor.ui.componentFactory.names() ));
           
 
-          const toolbarContainer = document.querySelector( '.document-editor__toolbar' );
-          toolbarContainer.appendChild( editor.ui.view.toolbar.element );
-          this.Editor = editor;
-      } )
-      .catch( err => {
-          console.error( err.stack );
-      } );
+  //         const toolbarContainer = document.querySelector( '.document-editor__toolbar' );
+  //         toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+  //         this.Editor = editor;
+  //     } )
+  //     .catch( err => {
+  //         console.error( err.stack );
+  //     } );
     
   }
 
@@ -132,13 +136,18 @@ export class AppComponent  implements OnInit, OnChanges, AfterViewInit  {
   }
 
 
-  public onReady( editor ) {
-    console.log("onReady event", editor );
+  public onReady( editor: any ) {
+    console.log("onReady event" );
     if(editor) {
-      editor.ui.getEditableElement().parentElement.insertBefore(
-          editor.ui.view.toolbar.element,
-          editor.ui.getEditableElement()
-      );
+      const toolbarContainer = document.querySelector( '.document-editor__toolbar' );
+      toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+      // editor.ui.getEditableElement().parentElement.insertBefore(
+      //     editor.ui.view.toolbar.element,
+      //     editor.ui.getEditableElement()
+      // );
+        //         const toolbarContainer = document.querySelector( '.document-editor__toolbar' );
+  //         toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+  //         this.Editor = editor;
     }
   }
 

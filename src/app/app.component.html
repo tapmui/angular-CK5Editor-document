@@ -17,27 +17,33 @@
 <div> <button  (click)="downloadAsPDF()">Export To PDF</button></div>
 <p></p>
 <div  id="pdfArea" #pdfArea>
+</div>
    <div class="document-editor">
     <div class="document-editor__toolbar">
     </div>
-        <!-- <div class="document-editor__editable">
-        </div> -->
-      <div class="document-editor__editable-container">
-          <ckeditor
-            [config]="editorConfig" 
-            [(ngModel)]="model.data"
-            [editor]="Editor"
-            [disabled]="isReadOnly"
-            id="decoupled-editor"
-            name="decoupled-editor"
-            (change)="onChange($event)"
-            (focus)="onFocus($event)"
-            (blur)="onBlur($event)">
-            debounce="500"
-          </ckeditor>
-      </div>
+    <div>
+      <div class="document-editor__editable">
+        <div class="document-editor__editable-container">
+            <ckeditor
+              [config]="editorConfig" 
+              [(ngModel)]="model.data"
+              [editor]="Editor"
+              [disabled]="isReadOnly"
+              id="decoupled-editor"
+              name="decoupled-editor"
+              (ready)="onReady($event)"
+              (change)="onChange($event)"
+              (focus)="onFocus($event)"
+              (blur)="onBlur($event)">
+              debounce="500"
+              </ckeditor>
+        </div>
+     </div>
+    </div>
+
   </div>
-</div>
+
+
 
 
   <!-- <form (ngSubmit)="onSubmit(demoReactiveForm.value)" [formGroup]="demoReactiveForm">
@@ -176,8 +182,8 @@
       </div>
   </div> -->
 
-<h3>Form data preview</h3>
-<pre>{{ formDataPreview }}</pre>
+<!-- <h3>Form data preview</h3>
+<pre>{{ formDataPreview }}</pre> -->
 
 
 

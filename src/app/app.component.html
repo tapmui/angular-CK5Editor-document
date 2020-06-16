@@ -22,17 +22,16 @@
     <div class="document-editor__editable">
       <div class="document-editor__editable-container">
           <ckeditor
-            [config]="editorConfig" 
-            [(ngModel)]="model.data"
             [editor]="Editor"
-            [disabled]="isReadOnly"
             id="decoupled-editor"
             name="decoupled-editor"
+            [disabled]="isReadOnly"
+            [config]="editorConfig" 
+            [(ngModel)]="model.data"
             (ready)="onReady($event)"
             (change)="onChange($event)"
             (focus)="onFocus($event)"
             (blur)="onBlur($event)">
-            debounce="500"
           </ckeditor>
       </div>
     </div>
